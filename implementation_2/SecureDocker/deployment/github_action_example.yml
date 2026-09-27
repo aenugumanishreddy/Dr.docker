@@ -1,0 +1,48 @@
+name: SecureDocker Build & Scan
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-enforce:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Build Docker Image
+      run: |
+        docker build -t my-app:${{ github.sha }} .
+        
+    - name: SecureDocker CI/CD Webhook Check
+      run: |
+        # Ping the webhook server before pushing to Docker Hub or ECR
+        # Replace SECURE_DOCKER_URL with your actual server IP running the webhook server
+        
+        RESPONSE=$(curl -s -w "\nHTTP_STATUS:%{http_code}" -X POST \
+          -H "Content-Type: application/json" \
+          -d "{\"image_name\":\"my-app:${{ github.sha }}\"}" \
+          http://SECURE_DOCKER_URL:5000/api/v1/scan)
+          
+        HTTP_STATUS=$(echo "$RESPONSE" | grep "HTTP_STATUS" | awk -F":" '{print $2}')
+        BODY=$(echo "$RESPONSE" | sed '/HTTP_STATUS/d')
+        
+        echo "Response from SecureDocker: $BODY"
+        
+        if [ "$HTTP_STATUS" -eq 406 ]; then
+          echo "🚫 POLICY VIOLATION! SecureDocker blocked this deployment due to critical vulnerabilities."
+          exit 1 # Fail the GitHub Action
+        elif [ "$HTTP_STATUS" -ne 200 ]; then
+          echo "⚠️ Server error communicating with SecureDocker."
+          exit 1
+        fi
+        
+        echo "✅ Image scanned and approved by SecureDocker. Safe to push to Production Registry!"
+
+    - name: Push to Registry (If Approved)
+      run: |
+        # Only runs if the webhook returned a 200 OK allowing the deployment
+        echo "Deploying to production..."
+        # docker push my-app:${{ github.sha }}

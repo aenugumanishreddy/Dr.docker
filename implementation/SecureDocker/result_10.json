@@ -1,0 +1,90 @@
+{
+  "SchemaVersion": 2,
+  "Trivy": {
+    "Version": "0.69.3"
+  },
+  "ReportID": "019d32ab-2cd3-74af-8533-25a9702b6a64",
+  "CreatedAt": "2026-03-28T09:49:32.179307+05:30",
+  "ArtifactID": "sha256:8c6d5ca761d5eef3877d71723f1af0ed259d4efa3e14b1d60b141912d7905de2",
+  "ArtifactName": "cirros",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "Size": 16728576,
+    "ImageID": "sha256:9aef66b2a694f8cd31bd5c334419a0c75dc7f4c869931087c04ea9b2cfbdebaf",
+    "DiffIDs": [
+      "sha256:8de089dcf0c98cf05122e7dd58064ce0c282713f82487c39ab0ede888209a82a",
+      "sha256:af2bdd10ee79fc433b6a64fc3abfbbed0d057c593036e42c942816723fe7e91c",
+      "sha256:935ac64ea78c534493acd54649803bd53047e20e38f54c6799eda812fff250ef"
+    ],
+    "RepoTags": [
+      "cirros:latest"
+    ],
+    "RepoDigests": [
+      "cirros@sha256:9aef66b2a694f8cd31bd5c334419a0c75dc7f4c869931087c04ea9b2cfbdebaf"
+    ],
+    "Reference": "cirros:latest",
+    "ImageConfig": {
+      "architecture": "amd64",
+      "created": "2024-09-25T10:32:49Z",
+      "history": [
+        {
+          "created": "2024-09-25T10:32:49Z",
+          "created_by": "ADD rootfs-x86_64.tar.xz / # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2024-09-25T10:32:49Z",
+          "created_by": "RUN /bin/sh -c rm /etc/rc3.d/S40-network # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2024-09-25T10:32:49Z",
+          "created_by": "RUN /bin/sh -c sed -i '/is_lxc \u0026\u0026 lxc_netdown/d' /etc/init.d/rc.sysinit # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2024-09-25T10:32:49Z",
+          "created_by": "CMD [\"/sbin/init\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        }
+      ],
+      "os": "linux",
+      "rootfs": {
+        "type": "layers",
+        "diff_ids": [
+          "sha256:8de089dcf0c98cf05122e7dd58064ce0c282713f82487c39ab0ede888209a82a",
+          "sha256:af2bdd10ee79fc433b6a64fc3abfbbed0d057c593036e42c942816723fe7e91c",
+          "sha256:935ac64ea78c534493acd54649803bd53047e20e38f54c6799eda812fff250ef"
+        ]
+      },
+      "config": {
+        "Cmd": [
+          "/sbin/init"
+        ],
+        "Env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+        ],
+        "WorkingDir": "/",
+        "ArgsEscaped": true
+      }
+    },
+    "Layers": [
+      {
+        "Size": 16720896,
+        "Digest": "sha256:57744a926da1c44122a6ef5cb4fc3e18f84f8b715cf407b9d1f49145f97fca55",
+        "DiffID": "sha256:8de089dcf0c98cf05122e7dd58064ce0c282713f82487c39ab0ede888209a82a"
+      },
+      {
+        "Size": 2560,
+        "Digest": "sha256:898f17ab44c36fc4848662143b4e22abc3dcb3ea2f72c2478b694daa1b29d228",
+        "DiffID": "sha256:af2bdd10ee79fc433b6a64fc3abfbbed0d057c593036e42c942816723fe7e91c"
+      },
+      {
+        "Size": 5120,
+        "Digest": "sha256:e515d9888048df66351e2a33db97996c388dba76b12d10d8bf669de6227493f3",
+        "DiffID": "sha256:935ac64ea78c534493acd54649803bd53047e20e38f54c6799eda812fff250ef"
+      }
+    ]
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "SchemaVersion": 2,
+  "Trivy": {
+    "Version": "0.69.3"
+  },
+  "ReportID": "019d32aa-39c3-797a-baf3-0071b4d13fd3",
+  "CreatedAt": "2026-03-28T09:48:29.9556213+05:30",
+  "ArtifactID": "sha256:daa9acd7208496d8b05a166731f78f7fecf103d42b2a22282d749a5ebf295ffb",
+  "ArtifactName": "fedora",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "Size": 186299904,
+    "OS": {
+      "Family": "fedora",
+      "Name": "43"
+    },
+    "ImageID": "sha256:781b7642e8bf256e9cf75d2aa58d86f5cc695fd2df113517614e181a5eee9138",
+    "DiffIDs": [
+      "sha256:3830d7608b045802f43a341fb6e7880c90393f2a1d28c8e5392fbda147a7eb7c"
+    ],
+    "RepoTags": [
+      "fedora:latest"
+    ],
+    "RepoDigests": [
+      "fedora@sha256:781b7642e8bf256e9cf75d2aa58d86f5cc695fd2df113517614e181a5eee9138"
+    ],
+    "Reference": "fedora:latest",
+    "ImageConfig": {
+      "architecture": "amd64",
+      "created": "2026-02-09T20:01:35.252582712Z",
+      "history": [
+        {
+          "created": "2026-02-09T20:01:35Z",
+          "created_by": "LABEL maintainer=Clement Verna \u003ccverna@fedoraproject.org\u003e",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-02-09T20:01:35Z",
+          "created_by": "ENV DISTTAG=f43container FGC=f43 FBR=f43",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-02-09T20:01:35Z",
+          "created_by": "ADD fedora-20260209.tar / # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-02-09T20:01:35Z",
+          "created_by": "CMD [\"/bin/bash\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        }
+      ],
+      "os": "linux",
+      "rootfs": {
+        "type": "layers",
+        "diff_ids": [
+          "sha256:3830d7608b045802f43a341fb6e7880c90393f2a1d28c8e5392fbda147a7eb7c"
+        ]
+      },
+      "config": {
+        "Cmd": [
+          "/bin/bash"
+        ],
+        "Env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "DISTTAG=f43container",
+          "FGC=f43",
+          "FBR=f43"
+        ],
+        "Labels": {
+          "maintainer": "Clement Verna \u003ccverna@fedoraproject.org\u003e"
+        },
+        "WorkingDir": "/"
+      }
+    },
+    "Layers": [
+      {
+        "Size": 186299904,
+        "Digest": "sha256:5bc90b3315da3fc82334466d67c937e59abdbfd94a4271cdb118d70c307597d2",
+        "DiffID": "sha256:3830d7608b045802f43a341fb6e7880c90393f2a1d28c8e5392fbda147a7eb7c"
+      }
+    ]
+  }
+}
